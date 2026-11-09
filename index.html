@@ -6,17 +6,20 @@
 <meta name="theme-color" content="#1A1628">
 <meta name="description" content="Port of Bosire — the interactive portfolio of Jeremy Bosire, Fullstack Developer and DevOps Engineer in Nairobi, Kenya.">
 <title>Port of Bosire — Jeremy Bosire</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Port of Bosire — Jeremy Bosire">
+<meta property="og:description" content="Unload the cargo of Jeremy Bosire, Fullstack Developer and DevOps Engineer in Nairobi, Kenya, from the seat of a harbor crane.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1628'/%3E%3Cpath d='M6 26h20M9 26V11m14 15V11M7 11h18M9 11V6h14v5' stroke='%23F4B393' stroke-width='2.2' fill='none'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jeremy Bosire","jobTitle":"Fullstack Developer & DevOps Engineer","address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},"alumniOf":"Egerton University","sameAs":["https://github.com/Jeremy-Bosire","https://www.linkedin.com/in/jeremy-bosire-3004b51a7/"]}</script>
 <style>
 /* ============================================================
    DUSK HARBOR COLOR SYSTEM — edit the complete UI palette here.
    ============================================================ */
 :root{
-  --font-display:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:Georgia,"Times New Roman",serif;
   --font-body:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --lime-cream:#CEEC97; --peach-glow:#F4B393; --hot-pink:#FC60A8;
   --royal-violet:#7A28CB; --vintage-grape:#494368;
   --ink:#1A1628; --panel-deep:#2B2640; --panel-raised:#373152;
@@ -94,7 +97,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 ::selection{background:var(--peach-glow);color:var(--ink)}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .mono{font-family:var(--font-mono)}
-.eyebrow{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.eyebrow{font-family:var(--font-body);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:750}
 .muted{color:var(--muted)}
 
 /* ---------- port shell ---------- */
@@ -169,8 +172,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .icon-btn:hover{background:var(--panel-2);border-color:var(--line-strong)}
 .icon-btn svg{width:15px;height:15px;flex:0 0 auto}
 .icon-btn .label{display:inline}
-.skip-btn{background:var(--brand-gradient);color:var(--button-ink);border-color:transparent;padding:0 13px;font-weight:700}
-.skip-btn:hover{background:var(--brand-gradient);filter:brightness(1.04)}
+.skip-btn{background:var(--panel-2);color:var(--ink);border-color:var(--line-strong);padding:0 13px;font-weight:700}
+.skip-btn:hover{background:var(--control-hover)}
 
 /* ---------- prompt + toast ---------- */
 .prompt{
@@ -255,34 +258,23 @@ body:not(.playing) .view-pad{visibility:hidden}
   background:var(--overlay-dark);backdrop-filter:none}
 .intro-inner{width:min(560px,100%)}
 .radio-card{
-  padding:17px 19px 16px;border-radius:14px;
+  padding:22px 24px 20px;border-radius:5px 14px 5px 14px;
   background:var(--panel);border:1px solid var(--line-strong);
-  backdrop-filter:none;box-shadow:var(--shadow);
+  backdrop-filter:none;box-shadow:7px 7px 0 color-mix(in srgb,var(--accent) 12%,transparent),var(--shadow);
   color:var(--ink);
 }
-.radio-card .eyebrow{color:var(--heading);margin-bottom:9px}
-.radio-text{font-family:var(--font-body);font-size:clamp(1rem,2.6vw,1.12rem);line-height:1.7;
-  color:var(--ink);min-height:3.4em;text-wrap:pretty}
-.radio-text .cursor{display:inline-block;width:.55em;height:1.05em;background:var(--peach-glow);
-  vertical-align:-.16em;margin-left:2px;animation:blink 1s steps(1) infinite}
+.radio-card .eyebrow{color:var(--heading);margin-bottom:12px}
+.intro-title{font-size:clamp(2.4rem,6vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:0 0 8px}
+.intro-role{font-size:clamp(1.05rem,2.6vw,1.22rem);font-weight:700;line-height:1.35;color:var(--accent-2);margin:0 0 13px}
+.radio-text{font-family:var(--font-body);font-size:clamp(1.12rem,2.8vw,1.32rem);line-height:1.65;
+  color:var(--ink);min-height:0;max-width:52ch;text-wrap:pretty}
 .intro-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
-@keyframes blink{50%{opacity:0}}
-.briefing-card{
-  width:min(580px,100%);padding:clamp(22px,4vw,38px);border-radius:22px;
-  background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);
-  position:relative;overflow:hidden;
-}
-.briefing-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--peach-glow)}
-.briefing-card h2{font-size:clamp(1.55rem,5vw,2.35rem);line-height:1.08;letter-spacing:-.025em;margin:10px 0 12px}
-.briefing-card p{color:var(--muted);font-size:clamp(1rem,2.7vw,1.12rem);line-height:1.6}
-.briefing-card .briefing-note{font-family:var(--font-body);font-size:1rem;letter-spacing:0;color:var(--muted);margin-top:14px;line-height:1.55}
-.briefing-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.briefing-actions .btn{flex:1 1 170px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
   min-height:46px;padding:0 18px;border-radius:11px;border:1px solid transparent;
   font-weight:600;font-size:1rem;letter-spacing:0;transition:transform .12s,filter .15s,background .15s}
 .btn:active{transform:translateY(1px)}
-.btn-primary{background:var(--brand-gradient);color:var(--button-ink)}
+.btn-primary{background:var(--peach-glow);color:var(--button-ink)}
+.intro-actions .btn-primary{background:var(--brand-gradient)}
 .btn-primary:hover{filter:brightness(1.06)}
 .btn-secondary{background:var(--panel-2);border-color:var(--line-strong);color:var(--ink)}
 .btn-secondary:hover{background:var(--panel)}
@@ -305,45 +297,74 @@ body:not(.playing) .view-pad{visibility:hidden}
 /* ---------- side panel / bottom sheet ---------- */
 .panel{
   position:absolute;z-index:34;display:flex;flex-direction:column;
-  background:var(--panel);color:var(--ink);border:1px solid var(--line);
-  box-shadow:var(--shadow);overflow:hidden;
+  background:var(--panel);color:var(--ink);border:1px solid var(--line-strong);
+  box-shadow:7px 7px 0 color-mix(in srgb,var(--section-color,var(--accent)) 12%,transparent),var(--shadow);overflow:hidden;
+  border-radius:4px 16px 4px 16px;
 }
 .panel[data-open="false"]{display:none}
 .panel-grab{display:none}
-.panel-head{display:flex;align-items:flex-start;gap:12px;padding:18px 18px 12px;border-bottom:1px solid var(--line);flex:0 0 auto}
-.panel[data-section-color] .panel-head{border-top:4px solid var(--section-color);padding-top:14px}
+.panel-head{display:flex;align-items:flex-start;gap:12px;padding:18px 18px 12px;border-bottom:1px solid var(--line);flex:0 0 auto;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--section-color,var(--accent)) 10%,var(--panel)),var(--panel) 68%)}
+.panel[data-section-color] .panel-head{border-top:3px solid var(--section-color);padding-top:15px}
+.panel-head .eyebrow{font-family:var(--font-body);font-size:.72rem;letter-spacing:.1em}
 .panel-head-copy{min-width:0;flex:1}
 .panel-head h2{font-size:1.55rem;line-height:1.2;letter-spacing:-.02em;margin-top:3px}
 .panel-close{width:44px;height:44px;flex:0 0 auto;border-radius:9px;border:1px solid var(--line);
   display:grid;place-items:center;font-size:17px;line-height:1;color:var(--muted)}
 .panel-close:hover{background:var(--panel-2);color:var(--ink)}
-.panel-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:15px 18px 22px;flex:1 1 auto}
+.panel-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:15px 18px 22px;flex:1 1 auto;
+  background-image:repeating-linear-gradient(180deg,transparent 0 31px,color-mix(in srgb,var(--line) 28%,transparent) 31px 32px)}
 .panel-sub{font-size:1.05rem;color:var(--muted);margin-top:4px;line-height:1.5}
-.crate-list{display:grid;gap:6px;margin:13px 0 15px}
+.manifest-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:0 0 9px;border-bottom:1px dashed var(--line-strong)}
+.manifest-code{font:600 .72rem/1.4 var(--font-mono);letter-spacing:.035em;color:var(--muted)}
+.manifest-stamp{flex:0 0 auto;padding:3px 7px;border:1px solid var(--section-color,var(--line-strong));color:var(--accent-2);
+  font:700 .66rem/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;transform:rotate(-1.5deg)}
+.crate-list{display:grid;gap:0;margin:13px 0 15px;border-top:1px solid var(--line)}
 .crate-btn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 13px;
-  border:1px solid var(--line);border-radius:9px;background:var(--panel-2);transition:border-color .15s,background .15s}
-.crate-btn:hover{border-color:var(--line-strong)}
-.crate-btn[aria-current="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--panel))}
+  border:0;border-bottom:1px solid var(--line);border-left:3px solid transparent;border-radius:0;background:transparent;transition:border-color .15s,background .15s}
+.crate-btn:hover{background:color-mix(in srgb,var(--section-color,var(--accent)) 7%,var(--panel))}
+.crate-btn[aria-current="true"]{border-left-color:var(--section-color,var(--accent));background:color-mix(in srgb,var(--section-color,var(--accent)) 10%,var(--panel))}
 .crate-swatch{width:11px;height:11px;border-radius:3px;flex:0 0 auto;border:1px solid var(--line-strong)}
 .crate-btn .crate-name{flex:1;font-size:1rem;font-weight:600;line-height:1.35}
 .crate-btn .crate-weight{font-family:var(--font-mono);font-size:.9rem;letter-spacing:0;color:var(--muted);white-space:normal;text-align:right}
-.detail{border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.detail{position:relative;border-top:1px dashed var(--line-strong);border-left:3px solid var(--section-color,var(--line-strong));
+  padding:14px 0 4px 15px;margin-top:17px}
+.detail-caption{font:700 .68rem/1.4 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin-bottom:6px}
+.detail-caption--sub{margin-top:14px;margin-bottom:4px;letter-spacing:.06em}
+.detail--project{border-left-width:5px;padding-left:17px}
+.detail--project .detail-caption{display:inline-block;padding:3px 7px;border:1px solid currentColor;transform:rotate(-1deg)}
+.case-study{display:grid;gap:12px;margin:12px 0 4px}
+.case-study-section{min-width:0;padding-left:11px;border-left:2px solid color-mix(in srgb,var(--section-color,var(--accent)) 62%,var(--line))}
+.case-study-section h4{font:700 .78rem/1.4 var(--font-body);letter-spacing:.07em;text-transform:uppercase;color:var(--accent-2);margin:0 0 4px}
+.case-study-section p,.case-study-section li{font-size:1rem;line-height:1.55;color:var(--muted)}
+.case-study-section ul{display:grid;gap:7px;margin:5px 0 0;padding:0}
+.case-study-section li{position:relative;padding-left:15px}
+.case-study-section li::before{content:"";position:absolute;left:1px;top:.62em;width:5px;height:5px;border-radius:1px;background:var(--accent-2);transform:rotate(45deg)}
+.decision-list{display:grid;gap:8px;margin:5px 0 0}
+.decision-list div{display:grid;grid-template-columns:minmax(110px,.45fr) minmax(0,1fr);gap:7px 12px;padding-top:7px;border-top:1px dashed var(--line)}
+.decision-list dt{font-size:.95rem;font-weight:700;line-height:1.45;color:var(--ink)}
+.decision-list dd{margin:0;font-size:.95rem;line-height:1.5;color:var(--muted)}
+.detail--skills{border-left-style:dotted}
+.detail--achievement .badge{transform:rotate(-2deg)}
+.detail--contact{border-left-style:double;border-left-width:5px}
 .detail h3{font-size:1.3rem;letter-spacing:-.01em;line-height:1.3}
-.detail .meta{font-family:var(--font-mono);font-size:.88rem;letter-spacing:0;color:var(--accent);margin:7px 0 10px;line-height:1.5}
+.detail .meta{font-family:var(--font-body);font-size:.94rem;letter-spacing:0;color:var(--accent-2);margin:7px 0 10px;line-height:1.5;font-weight:650}
 .detail p{font-size:1.0625rem;color:var(--muted);margin:9px 0;line-height:1.65}
 .detail ul{display:grid;gap:5px;margin:9px 0;padding-left:0}
 .detail ul li{position:relative;padding-left:16px;font-size:.98rem;color:var(--muted);line-height:1.5}
 .detail ul li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:1px;
   background:var(--accent-2);transform:rotate(45deg)}
 .tag-list{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 5px}
-.tag-list span{font-family:var(--font-body);font-size:.9rem;letter-spacing:0;line-height:1.35;
-  padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);background:var(--panel-2)}
+.tag-list span{font-family:var(--font-body);font-size:.88rem;letter-spacing:0;line-height:1.35;
+  padding:5px 9px;border-radius:3px 9px 3px 9px;border:1px solid var(--line-strong);color:var(--ink);background:var(--panel-2)}
+.tag-list--skills span:nth-child(3n+1){border-radius:9px 3px 9px 3px}
+.tag-overflow{font-size:.8rem;font-weight:600;color:var(--muted);align-self:center;padding:4px 0}
 .item-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
 .item-links a,.item-links button{display:inline-flex;align-items:center;gap:5px;min-height:44px;padding:0 13px;
   border-radius:8px;border:1px solid var(--line-strong);background:var(--panel-2);color:var(--ink);
   font-size:.92rem;font-weight:600;text-decoration:none}
 .item-links a:hover,.item-links button:hover{border-color:var(--accent-2);color:var(--accent-2)}
-.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:.82rem;
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-body);font-size:.78rem;
   letter-spacing:.04em;text-transform:uppercase;padding:4px 8px;border-radius:5px;
   background:color-mix(in srgb,var(--accent-2) 16%,transparent);color:var(--accent-2);
   border:1px solid color-mix(in srgb,var(--accent-2) 40%,transparent);margin-left:6px;vertical-align:2px}
@@ -352,11 +373,11 @@ body:not(.playing) .view-pad{visibility:hidden}
 .panel-foot{flex:0 0 auto;padding:12px 18px calc(12px + var(--safe-b));border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
 .panel-foot .btn{flex:1 1 140px;min-height:46px;font-size:.96rem}
 .panel-empty{font-size:1rem;color:var(--muted);padding:10px 0}
-.index-list{display:grid;gap:7px;margin-top:12px}
+.index-list{display:grid;gap:0;margin-top:12px;border-top:1px solid var(--line)}
 .index-btn{display:flex;align-items:center;gap:10px;width:100%;padding:11px;border:1px solid var(--line);
   border-radius:9px;background:var(--panel-2);text-align:left}
-.index-btn{border-left:4px solid var(--section-color,var(--line))}
-.index-btn:hover{border-color:var(--accent)}
+.index-btn{padding:13px 10px;border:0;border-bottom:1px solid var(--line);border-left:3px solid var(--section-color,var(--line));border-radius:0;background:transparent}
+.index-btn:hover{background:color-mix(in srgb,var(--section-color,var(--accent)) 8%,var(--panel))}
 .index-btn .idx{font-family:var(--font-mono);font-size:.84rem;color:var(--accent);letter-spacing:.02em}
 .index-btn .idx-copy{flex:1;min-width:0}
 .index-btn b{display:block;font-size:1rem;line-height:1.35}
@@ -388,7 +409,7 @@ body.is-touch.playing .touch{display:block}
 .dpad .hub{grid-column:2;grid-row:2;border:0;background:transparent;pointer-events:none}
 .action-btn{position:absolute;right:calc(var(--safe-r) + 20px);bottom:calc(var(--safe-b) + 26px);
   width:86px;height:86px;border-radius:50%;pointer-events:auto;
-  background:var(--brand-gradient);color:var(--button-ink);
+  background:var(--lime-cream);color:var(--button-ink);
   border:1px solid var(--line-strong);box-shadow:var(--shadow-soft);
   font-family:var(--font-mono);font-weight:600;font-size:11px;letter-spacing:.1em;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
@@ -411,12 +432,14 @@ body.is-touch.playing .touch{display:block}
 .classic-section{scroll-margin-top:96px}
 .classic-wrap{max-width:1180px;margin:0 auto;padding:clamp(36px,6vw,82px) clamp(20px,5vw,48px) 72px}
 .classic-hero{padding-bottom:clamp(36px,5vw,60px);border-bottom:1px solid var(--line)}
-.classic-hero h1{font-size:clamp(3.2rem,8.5vw,6.4rem);line-height:1;letter-spacing:-.045em;margin:16px 0 18px}
+.classic-hero h1{width:fit-content;max-width:100%;font-size:clamp(3.2rem,8.5vw,6.4rem);line-height:1;letter-spacing:-.045em;margin:16px 0 18px}
 .classic-role{font-size:clamp(1.45rem,3vw,1.9rem);font-weight:600;letter-spacing:-.015em;color:var(--ink);max-width:34ch;line-height:1.3}
 .classic-lead{max-width:68ch;font-size:clamp(1.15rem,2vw,1.3rem);line-height:1.7;color:var(--muted);margin-top:18px}
 .classic-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .classic-links a,.classic-links button{display:inline-flex;align-items:center;min-height:46px;padding:0 16px;border-radius:9px;
   border:1px solid var(--line-strong);background:var(--panel);color:var(--ink);text-decoration:none;font-size:.98rem;font-weight:650}
+.classic-links .projects-link{background:var(--peach-glow);color:var(--button-ink);border-color:transparent}
+.classic-links .projects-link:hover{filter:brightness(1.04);color:var(--button-ink)}
 .classic-links a:hover,.classic-links button:hover{border-color:var(--accent);color:var(--accent)}
 .classic-reference{margin-top:22px;font-family:var(--font-mono);font-size:.95rem;letter-spacing:0;color:var(--muted);line-height:1.55}
 .classic-section{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding:clamp(38px,5vw,58px) 0;border-bottom:1px solid var(--line)}
@@ -425,10 +448,21 @@ body.is-touch.playing .touch{display:block}
 .classic-section-head .eyebrow{border-left:4px solid var(--section-color,var(--accent));padding-left:9px;color:var(--muted)}
 .classic-section-head p{font-size:1.12rem;color:var(--muted);max-width:30ch;line-height:1.6}
 .classic-items{display:grid;gap:16px;align-content:start}
-.classic-item{padding:clamp(20px,2.4vw,28px);border:1px solid var(--line);border-left:4px solid var(--section-color,var(--line));border-radius:16px;background:var(--panel);box-shadow:var(--shadow-soft);line-height:1.65}
+.classic-item{padding:clamp(20px,2.4vw,28px);border:1px solid var(--line);border-left:4px solid var(--section-color,var(--line));border-radius:4px 14px 4px 14px;background:var(--panel);box-shadow:none;line-height:1.65}
 .classic-item.is-featured{border-color:color-mix(in srgb,var(--accent-2) 55%,var(--line))}
+.classic-item-head{min-width:0}
+.classic-item-content{min-width:0}
+.record-kind{font:700 .72rem/1.4 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin-bottom:7px}
+.record-kind--detail{margin-top:14px;margin-bottom:4px;letter-spacing:.06em}
+.classic-item--project{display:grid;grid-template-columns:minmax(145px,.36fr) minmax(0,1fr);column-gap:22px;row-gap:12px}
+.classic-item--project .classic-item-head{padding-right:15px;border-right:1px dashed var(--line-strong)}
+.classic-item--project.is-featured{border-top:3px solid var(--section-color,var(--accent));background:linear-gradient(115deg,color-mix(in srgb,var(--section-color,var(--accent)) 7%,var(--panel)),var(--panel) 48%)}
+.classic-item--project:not(.is-featured){padding-top:19px;padding-bottom:19px}
+.classic-item--achievement{background-image:linear-gradient(90deg,color-mix(in srgb,var(--section-color) 6%,var(--panel)),var(--panel) 34%)}
+.classic-item--education .classic-item-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.classic-item--education .classic-item-head .meta{margin:0}
 .classic-item h3{font-size:clamp(1.4rem,2vw,1.75rem);letter-spacing:-.01em;line-height:1.35}
-.classic-item .meta{font-family:var(--font-mono);font-size:1rem;letter-spacing:0;color:var(--accent);margin:9px 0 13px;line-height:1.55}
+.classic-item .meta{font-family:var(--font-body);font-size:1rem;letter-spacing:0;color:var(--accent-2);margin:9px 0 13px;line-height:1.55;font-weight:650}
 .classic-item p{max-width:72ch;font-size:1.125rem;color:var(--muted);margin:10px 0;line-height:1.7}
 .classic-item ul{display:grid;gap:8px;margin:12px 0}
 .classic-item ul li{position:relative;max-width:72ch;padding-left:18px;font-size:1.075rem;color:var(--muted);line-height:1.6}
@@ -441,6 +475,7 @@ body.is-touch.playing .touch{display:block}
 .classic-fallback{margin:0 auto 18px;max-width:1080px;padding:12px 16px;border-radius:10px;
   border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:var(--panel);
   font-size:1rem;color:var(--ink);line-height:1.6}
+@media (max-width:680px){.classic-item--project{grid-template-columns:minmax(0,1fr)}.classic-item--project .classic-item-head{padding:0 0 12px;border-right:0;border-bottom:1px dashed var(--line-strong)}}
 
 /* ---------- responsive tweaks ---------- */
 @media (max-width:780px){
@@ -469,6 +504,7 @@ body.is-touch.playing .touch{display:block}
   .brand-copy b{letter-spacing:.08em}
   .tracker-copy span{font-size:10px}
   .classic-hero h1{font-size:clamp(2.6rem,12vw,3.8rem)}
+  .decision-list div{grid-template-columns:minmax(0,1fr);gap:2px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
@@ -477,11 +513,15 @@ body.is-touch.playing .touch{display:block}
 @media (forced-colors:active){
   :focus-visible{outline:3px solid Highlight}
   .view-pad,.view-pad button,.classic-item,.icon-btn{border:1px solid ButtonText}
+  .case-study-section{border-left-color:CanvasText}
+  .decision-list div{border-top-color:CanvasText}
+  .classic-links .projects-link{border:1px solid ButtonText}
   .view-pad-label,.tag b{color:CanvasText}
 }
 </style>
 </head>
 <body>
+<noscript><div style="position:fixed;inset:0;z-index:200;overflow:auto;padding:24px;background:#1A1628;color:#F2EBDD;font:18px/1.6 system-ui,sans-serif"><h1 style="color:#F4B393">Jeremy Bosire</h1><p>I’m a full-stack developer and DevOps engineer in Nairobi. I graduated with a BSc in Computer Science from Egerton University and work with React, C#/.NET, Python and PostgreSQL.</p><p>This portfolio is an interactive harbor and needs JavaScript. <a style="color:#CEEC97" href="https://github.com/Jeremy-Bosire">GitHub</a> · <a style="color:#CEEC97" href="https://www.linkedin.com/in/jeremy-bosire-3004b51a7/">LinkedIn</a> · <a style="color:#CEEC97" href="mailto:bnjeremy.ke@gmail.com">Email</a></p></div></noscript>
 <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
   <div class="loading-card">
     <p class="eyebrow">PORT OF BOSIRE · NAIROBI</p>
@@ -492,7 +532,7 @@ body.is-touch.playing .touch{display:block}
   </div>
 </div>
 <div id="port">
-  <canvas id="scene" aria-label="A low-poly harbour at dusk. Drag to rotate the view, use the arrow keys to pan, or use the crane to unload eight labelled containers onto the dock. Click any labelled container to read its contents. A full text version is available with the Skip game button."></canvas>
+  <canvas id="scene" aria-label="A harbor at dusk. Drag to rotate the view, use the arrow keys to pan, or use the crane to unload eight labelled containers onto the dock. Click any labelled container to read its contents. A full text version is available with the Skip game button."></canvas>
   <div class="scene-vignette" aria-hidden="true"></div>
   <div id="tags" class="tags" aria-hidden="true"></div>
 
@@ -522,7 +562,7 @@ body.is-touch.playing .touch{display:block}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v3m0 10v3M4 12h3m10 0h3"/></svg>
         <span class="label">Reset view</span>
       </button>
-      <button class="icon-btn" type="button" data-action="TOGGLE_SOUND" id="sound-btn" aria-pressed="false" aria-label="Sound off. Turn on harbour audio" title="Toggle sound">
+      <button class="icon-btn" type="button" data-action="TOGGLE_SOUND" id="sound-btn" aria-pressed="false" aria-label="Sound off. Turn on harbor audio" title="Toggle sound">
         <svg class="sound-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6m0-6l-4 6"/></svg>
         <svg class="sound-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8 8 0 010 12"/></svg>
         <span class="label" id="sound-label">Sound off</span>
@@ -622,29 +662,14 @@ body.is-touch.playing .touch{display:block}
   <section id="intro" class="overlay" aria-labelledby="intro-title">
     <div class="intro-inner">
       <div class="radio-card">
-        <p class="eyebrow" id="intro-title">CH 16 · Harbor Radio · 18:42</p>
-        <p class="radio-text" id="radio-text" aria-hidden="true"></p>
-        <p class="sr-only" id="radio-live">Port Control to Bosire Terminal. Cargo vessel MV Obsidian requesting berth. Manifest secured. Operator, report to crane alpha.</p>
+        <p class="eyebrow">Port of Bosire · Nairobi</p>
+        <h1 class="intro-title" id="intro-title">Jeremy Bosire</h1>
+        <p class="intro-role">Fullstack Developer &amp; DevOps Engineer</p>
+        <p class="radio-text" id="radio-text">I graduated with a BSc in Computer Science from Egerton University. At Zamupay, I’m building Koba, a remittance portal with a .NET backend and React frontend.</p>
         <div class="intro-actions">
-          <button class="btn btn-ghost" type="button" data-action="SKIP_INTRO">Skip intro →</button>
-          <button class="btn btn-ghost" type="button" data-action="SHOW_CLASSIC">View as normal page</button>
+          <button class="btn btn-primary" type="button" data-action="START_SHIFT">Explore the harbor</button>
+          <button class="btn btn-secondary" type="button" data-action="SHOW_CLASSIC">Read the portfolio</button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BRIEFING -->
-  <section id="briefing" class="overlay centered" aria-labelledby="briefing-title" hidden>
-    <div class="briefing-card">
-      <p class="eyebrow">Shift briefing · Dock 04</p>
-      <h2 id="briefing-title">Welcome aboard, Operator.</h2>
-      <p>Today’s shift: unload the cargo of <strong>Jeremy Bosire</strong>, Fullstack Developer &amp; DevOps Engineer.</p>
-      <p class="briefing-note" id="briefing-bio"></p>
-      <p class="briefing-note">8 containers on the manifest · 1 rumoured missing · shift ends when the yard is clear.</p>
-      <p class="briefing-note" style="margin-top:6px">Prefer to look around? After starting, drag with the mouse to rotate; use the arrow keys or the visible view arrows to pan, and the zoom buttons or scroll wheel to adjust distance. Click any labelled container to read its contents without moving the crane, or open the text version at any time.</p>
-      <div class="briefing-actions">
-        <button class="btn btn-primary" type="button" data-action="START_SHIFT" data-autofocus>Start shift</button>
-        <button class="btn btn-secondary" type="button" data-action="SHOW_CLASSIC">Skip game, view as normal page</button>
       </div>
     </div>
   </section>
@@ -653,11 +678,11 @@ body.is-touch.playing .touch{display:block}
   <section id="tutorial" class="overlay centered" aria-labelledby="tutorial-title" hidden>
     <div class="tutorial-card">
       <p class="eyebrow">Crane orientation</p>
-      <h2 id="tutorial-title">Learn the lever, then the load.</h2>
-      <p>Eight containers, each holding a chapter of Jeremy’s work. Bring them to the glowing dock to open them.</p>
+      <h2 id="tutorial-title">How to use the crane</h2>
+      <p>Move the crane with WASD, lift with Space, or open any container directly to read its contents. Camera controls are separate.</p>
       <div class="controls-grid">
         <div class="control-row"><span class="keys"><span>W A S D</span></span><p>Move the gantry and trolley. Movement has weight — lead your stops.</p></div>
-        <div class="control-row"><span class="keys"><span>↑ ← ↓ →</span><span>R</span></span><p>Pan the view with these keys or the visible arrow buttons. Drag with the mouse to rotate; R recentres. Camera controls never move the crane.</p></div>
+        <div class="control-row"><span class="keys"><span>↑ ← ↓ →</span><span>R</span></span><p>Pan the view with these keys or the visible arrow buttons. Drag with the mouse to rotate; R recenters. Camera controls never move the crane.</p></div>
         <div class="control-row"><span class="keys"><span>SPACE</span></span><p>Lower and lock, lift, then lower and release over the dock. Snap assist is forgiving.</p></div>
         <div class="control-row"><span class="keys"><span>CLICK</span><span>TAP</span></span><p>Open any labelled container to read its contents without moving the crane.</p></div>
         <div class="control-row"><span class="keys"><span>ESC</span></span><p>Close cargo panels. Tap the Action button on touch screens.</p></div>
@@ -710,7 +735,7 @@ body.is-touch.playing .touch{display:block}
       name: 'Jeremy Bosire',
       role: 'Fullstack Developer & DevOps Engineer',
       location: 'Nairobi, Kenya',
-      blurb: 'Fullstack Developer (Python, React, PostgreSQL) and DevOps Engineer, based in Nairobi, Kenya.',
+      blurb: 'I’m a Computer Science graduate from Egerton University, based in Nairobi. At Zamupay, I’m building Koba, a remittance portal with a .NET backend and React frontend. My work also includes Python, PostgreSQL and DevOps.',
       references: 'References available on request.'
     },
     links: {
@@ -721,42 +746,42 @@ body.is-touch.playing .touch{display:block}
     },
     sections: [
       {
-        id: 'manifest', label: 'MANIFEST', title: 'About', subtitle: 'Who is behind the cargo', tone: 0,
+        id: 'manifest', label: 'MANIFEST', title: 'About', subtitle: 'My background and current work', tone: 0,
         items: [
           {
             id: 'bio', title: 'Bio', size: 0.98,
-            body: 'Fullstack developer and Computer Science graduate (Egerton University, 2026) with strong foundations in distributed systems, database design and software engineering. Ships production-grade web apps end-to-end, from React frontends to Python backends and PostgreSQL, and works comfortably in small, senior remote teams.',
+            body: 'I graduated with a BSc in Computer Science from Egerton University in 2026. I studied software engineering through ALX Africa and Moringa School, then completed DevOps Engineering at Moringa. I build web applications with React, Python, C#/.NET and PostgreSQL.',
             tags: ['Egerton University, 2026', 'Distributed systems', 'Database design', 'Remote teams']
           },
           {
             id: 'currently', title: 'Currently', size: 0.78,
-            body: 'Software Developer Intern at Zamupay, building a remittance portal.',
+            body: 'I’m a Software Developer Intern at Zamupay, where I’m building Koba, a remittance portal with a .NET backend and a React frontend.',
             tags: ['Zamupay', 'Remittance', 'Production']
           },
           {
             id: 'ai-workflows', title: 'AI-augmented workflows', size: 0.8,
-            body: 'Claude API, Gemini Pro, prompt engineering and agentic systems woven into day-to-day engineering.',
+            body: 'I use Claude API, Gemini Pro, prompt engineering and agentic systems in my engineering work.',
             tags: ['Claude API', 'Gemini Pro', 'Prompt engineering', 'Agentic systems']
           },
           {
             id: 'status', title: 'Status', size: 0.92, featured: true, badge: 'COMPLETED',
-            body: 'Completed DevOps Engineering at Moringa School — Docker, Kubernetes, CI/CD, Terraform, AWS and Linux administration.',
+            body: 'I completed Moringa School’s DevOps Engineering program. It covered Docker, Kubernetes, CI/CD, Terraform, AWS and Linux administration.',
             tags: ['DevOps', 'Moringa School', 'Completed']
           }
         ]
       },
       {
-        id: 'experience', label: 'CARGO LOG', title: 'Experience', subtitle: 'Where I’ve worked', tone: 1,
+        id: 'experience', label: 'CARGO LOG', title: 'Experience', subtitle: 'Work, teams and competitions', tone: 1,
         items: [
           {
             id: 'zamupay', title: 'Zamupay', meta: 'Software Developer Intern · 6 Oct 2026 – Present', size: 1,
-            body: 'Architected and developed “Koba,” a production-ready remittance portal with secure payment processing and real-time transaction tracking.',
+            body: 'I architected and developed Koba, a remittance portal with secure payment processing and real-time transaction tracking. It uses a .NET (C#) backend and a React frontend.',
             bullets: [
-              'Enforced financial-grade security: JWT authentication, input sanitization and role-based access control.',
+              'Added JWT authentication, input sanitization and role-based access control.',
               'Integrated third-party payment gateways and wrote technical documentation.',
-              'Optimised API endpoints for low latency.'
+              'Optimized API endpoints for low latency.'
             ],
-            tags: ['Python', 'Flask', 'React', 'PostgreSQL', 'JWT', 'RBAC', 'Payments']
+            tags: ['C#', '.NET', 'React', 'JWT', 'RBAC', 'Input sanitization', 'Payment gateways', 'REST APIs']
           },
           {
             id: 'stellar', title: 'Stellar AI', meta: 'AI Training Data Annotator · 2026', size: 0.82,
@@ -770,34 +795,47 @@ body.is-touch.playing .touch{display:block}
           },
           {
             id: 'nrf', title: 'NRF CyberSecurity Hackathon', meta: '2nd Runners-Up · June 2024', size: 0.74, badge: '2nd RUNNERS-UP',
-            body: 'Led a 5-member team to 2nd place among 30+ teams, winning a Ksh 250,000 prize.',
+            body: 'I led a five-person team to second place among 30+ teams. We won Ksh 250,000.',
             tags: ['Leadership', 'Cybersecurity', 'Hackathon']
           }
         ]
       },
       {
-        id: 'shipments', label: 'SHIPMENTS', title: 'Projects', subtitle: 'What I’ve built', tone: 2,
+        id: 'shipments', label: 'SHIPMENTS', title: 'Projects', subtitle: 'Selected projects and build notes', tone: 2,
         items: [
           {
-            id: 'mindhero', title: 'MindHero', meta: 'May 2026 · Multi-tenant clinical mental health SaaS', size: 1,
-            body: 'A clinical mental health platform with facility-scoped data isolation and three-tier roles for admins, therapists and clients.',
-            bullets: [
-              'Invite-only registration with single-use tokenized links.',
-              'Claude API AI counselor with persistent chat history, crisis detection and AI-generated clinical summaries.',
-              'Therapist analytics dashboard: mood/sleep trends, habit tracking, risk flags, session notes and PDF reports.',
-              'Automated risk-escalation emails via Resend API with SMTP fallback.'
-            ],
+            id: 'mindhero', title: 'MindHero', meta: 'May 2026 · Multi-tenant clinical mental health SaaS', size: 1, featured: true,
+            caseStudy: {
+              problem: 'Keep clinical records separated by facility while supporting admins, therapists and clients.',
+              decisions: [
+                { choice: 'Facility-scoped data', reason: 'This keeps records separated by facility.' },
+                { choice: 'Three user roles', reason: 'The platform serves admins, therapists and clients with distinct access needs.' },
+                { choice: 'Invite-only, single-use links', reason: 'Registration is tied to a single invitation.' }
+              ],
+              delivered: [
+                'Invite-only registration with single-use tokenized links.',
+                'Claude API counselor with persistent chat history, crisis detection and AI-generated clinical summaries.',
+                'Therapist dashboard for mood and sleep trends, habits, risk flags, session notes and PDF reports.',
+                'Risk-escalation emails through Resend API, with SMTP fallback.'
+              ]
+            },
             tags: ['Python', 'Flask', 'React', 'TypeScript', 'SQLAlchemy', 'JWT', 'RBAC', 'Claude API', 'TailwindCSS', 'Recharts'],
-            repo: 'https://github.com/Jeremy-Bosire', demo: '', screenshot: ''
+            repo: '', demo: '', screenshot: ''
           },
           {
-            id: 'povertyline', title: 'PovertyLine', meta: 'May 2025 · Full-stack resource distribution platform', size: 0.88,
-            body: 'A full-stack, mobile-first resource distribution platform with role-based access for users, providers and admins.',
-            bullets: [
-              'PostgreSQL schema with indexing and query optimisation.',
-              'JWT authentication with RBAC, Redux Toolkit state management.',
-              'Jest and Pytest testing, containerised with Docker.'
-            ],
+            id: 'povertyline', title: 'PovertyLine', meta: 'May 2025 · Full-stack resource distribution platform', size: 0.88, featured: true,
+            caseStudy: {
+              problem: 'Support mobile-first resource distribution for users, providers and admins.',
+              decisions: [
+                { choice: 'Role-based access with JWT', reason: 'The platform has separate user, provider and admin roles.' },
+                { choice: 'PostgreSQL schema and indexes', reason: 'The documented database work includes query optimization.' }
+              ],
+              delivered: [
+                'A full-stack, mobile-first resource distribution platform.',
+                'Redux Toolkit state management.',
+                'Jest and Pytest tests, with the application containerized in Docker.'
+              ]
+            },
             tags: ['Python', 'Flask', 'React', 'Redux Toolkit', 'PostgreSQL', 'Material-UI', 'Docker'],
             repo: '', demo: '', screenshot: ''
           },
@@ -815,63 +853,65 @@ body.is-touch.playing .touch{display:block}
           },
           {
             id: 'shell-printf', title: 'Simple Shell & Custom Printf', meta: 'Jul 2023 · C, UNIX internals', size: 0.76,
-            body: 'A UNIX shell built from scratch in C and a custom printf with buffer management.',
+            body: 'I built a UNIX shell in C. My custom printf implementation was a team project with Stanley Murigi Njoroge.',
             bullets: [
               'Process control with fork and execve.',
               'Manual memory handling and buffer management.'
             ],
             tags: ['C', 'UNIX', 'fork/execve', 'Memory management'],
+            links: [{ label: 'Team printf repository', url: 'https://github.com/Jeremy-Bosire/printf' }],
             repo: '', demo: '', screenshot: ''
           }
         ]
       },
       {
-        id: 'payload', label: 'PAYLOAD', title: 'Skills', subtitle: 'What I carry', tone: 3,
+        id: 'payload', label: 'PAYLOAD', title: 'Skills', subtitle: 'Tools and technologies I use', tone: 3,
         items: [
           {
             id: 'frontend', title: 'Frontend', size: 0.94,
-            body: 'Interfaces that hold up in production: component systems, SSR/SSG and typed state.',
+            body: 'React interfaces, reusable components, SSR/SSG and typed state.',
             tags: ['React', 'Next.js SSR/SSG', 'TypeScript', 'JavaScript ES6+', 'Redux Toolkit', 'Tailwind CSS', 'Material-UI', 'CSS3']
           },
           {
             id: 'backend', title: 'Backend', size: 1,
-            body: 'APIs designed for correctness first, then speed.',
-            tags: ['Python', 'Flask', 'FastAPI', 'REST API design', 'JWT', 'RBAC', 'Async patterns']
+            body: 'API development with Python, Flask, FastAPI and C#/.NET.',
+            tags: ['Python', 'Flask', 'FastAPI', 'C#', '.NET', 'REST API design', 'JWT', 'RBAC', 'Async patterns'] /* C# and .NET come from the Zamupay role; not yet on the PDF CV */
           },
           {
             id: 'databases', title: 'Databases', size: 0.85,
-            body: 'Schema design, indexing and query optimisation with PostgreSQL.',
-            tags: ['PostgreSQL schema design', 'Indexing', 'Migrations', 'Query optimisation', 'SQL']
+            body: 'PostgreSQL schemas, indexes, migrations and query optimization.',
+            tags: ['PostgreSQL schema design', 'Indexing', 'Migrations', 'Query optimization', 'SQL']
           },
           {
             id: 'cloud', title: 'Cloud & DevOps', size: 0.98, miniCrates: true,
-            body: 'From container to cluster to pipeline — the boring reliability layer.',
+            body: 'My DevOps training covered containers, Kubernetes, infrastructure as code and CI/CD.',
             tags: ['AWS EC2/S3/Lambda', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions CI/CD', 'Linux']
           },
           {
             id: 'testing', title: 'Testing & Quality', size: 0.66,
-            body: 'Unit and integration tests that let a small team move quickly.',
+            body: 'I use Jest and Pytest for unit and integration testing.',
             tags: ['Jest', 'Pytest', 'Unit testing', 'Integration testing']
           },
           {
             id: 'ai', title: 'AI & LLMs', size: 0.9,
-            body: 'Practical AI features and AI-augmented engineering workflows.',
+            body: 'Claude API and Gemini Pro features, prompt engineering and AI-assisted development tools.',
             tags: ['Claude API', 'Gemini Pro', 'Prompt engineering', 'Agentic workflows', 'Copilot', 'Cursor', 'v0']
           },
           {
             id: 'other', title: 'Other', size: 0.58,
-            body: 'The supporting cast.',
+            body: 'C, Bash, Agile/Scrum and technical documentation.',
             tags: ['C', 'Bash', 'Agile/Scrum', 'Technical documentation']
           }
         ]
       },
       {
-        id: 'customs', label: 'CUSTOMS CLEARED', title: 'Achievements & open source', subtitle: 'Proof of work', tone: 4,
+        id: 'customs', label: 'CUSTOMS CLEARED', title: 'Achievements & open source', subtitle: 'Hackathons and contributions', tone: 4,
         items: [
           {
             id: 'open-source', title: 'Open Source', size: 0.92, badge: 'CLEARED',
-            body: 'Merged performance optimisations and code quality improvements into NumPy and PSF/Black.',
-            tags: ['NumPy', 'PSF/Black', 'Merged', 'Performance']
+            body: 'My open-source contributions include NumPy and PSF/Black.',
+            tags: ['NumPy', 'PSF/Black', 'Open source'],
+            links: [{ label: 'My contribution notes', url: 'https://github.com/Jeremy-Bosire#open-source-contributions' }]
           },
           {
             id: 'a2sv', title: 'A2SV AI for Impact Hackathon 2024', meta: 'Global Semifinalist', size: 0.84,
@@ -880,12 +920,12 @@ body.is-touch.playing .touch{display:block}
           },
           {
             id: 'plp', title: 'Inter-University Hackathon', meta: '1st Runners-Up · Power Learn Project, 2024', size: 0.8,
-            body: 'Built the translation-integrated messaging prototype Bonga Plus in 4 hours.',
+            body: 'We built Bonga Plus, a messaging prototype with translation, in four hours.',
             tags: ['Bonga Plus', 'Translation', 'Messaging', '4-hour build']
           },
           {
             id: 'gdg', title: 'Build with AI Hackathon', meta: 'Best Technical Presenter · GDG Nairobi, 2024', size: 0.72,
-            body: 'Recognised for the clearest technical story at GDG Nairobi’s Build with AI Hackathon.',
+            body: 'I was recognized for explaining the AI architecture and its business value at GDG Nairobi’s Build with AI Hackathon.',
             tags: ['Technical presenting', 'GDG Nairobi', 'AI']
           },
           {
@@ -896,7 +936,7 @@ body.is-touch.playing .touch{display:block}
         ]
       },
       {
-        id: 'training', label: 'TRAINING YARD', title: 'Education', subtitle: 'How I got here', tone: 5,
+        id: 'training', label: 'TRAINING YARD', title: 'Education', subtitle: 'Education and technical training', tone: 5,
         items: [
           {
             id: 'devops-moringa', title: 'DevOps Engineering', meta: 'Moringa School · Jun – Aug 2025', size: 0.96, featured: true, badge: 'COMPLETED',
@@ -936,17 +976,17 @@ body.is-touch.playing .touch{display:block}
         ]
       },
       {
-        id: 'signal', label: 'SIGNAL TOWER', title: 'AI creator & community', subtitle: 'Sharing what I learn', tone: 6,
+        id: 'signal', label: 'COMMUNITY', title: 'AI creator & community', subtitle: 'AI and developer community work', tone: 6,
         items: [
           {
             id: 'ai-creator', title: 'AI Content Creator', size: 0.9,
-            body: 'Recognised for creating AI content that drives AI adoption and education across Africa.',
+            body: 'I create AI content about adoption and education across Africa.',
             tags: ['AI education', 'Content', 'Africa'],
             channel: '' /* EDIT: add the channel URL here to show the link */
           },
           {
             id: 'africa-forward', title: 'Delegate, Africa Forward Summit', meta: 'Kenya · 2026', size: 0.82,
-            body: 'Selected among tech practitioners driving AI adoption and education in Africa.',
+            body: 'I was selected as a delegate among tech practitioners working on AI adoption and education in Africa.',
             tags: ['Delegate', 'AI adoption', 'Africa']
           },
           {
@@ -957,35 +997,35 @@ body.is-touch.playing .touch{display:block}
         ]
       },
       {
-        id: 'dispatch', label: 'DISPATCH', title: 'Contact', subtitle: 'Send a message', tone: 7,
+        id: 'dispatch', label: 'CONTACT', title: 'Contact', subtitle: 'Email, LinkedIn and GitHub', tone: 7,
         items: [
           {
             id: 'email', title: 'Email', size: 0.92,
-            body: 'The fastest way to reach me. Copy the address or open your mail client.',
-            tags: ['Direct', 'Replies within a day'],
+            body: 'Email me directly or copy my address.',
+            tags: ['Direct'],
             email: true
           },
           {
             id: 'linkedin', title: 'LinkedIn', size: 0.8,
-            body: 'Work history, posts and the professional version of this story.',
+            body: 'Connect with me on LinkedIn.',
             tags: ['Network', 'Work history'],
             links: [{ label: 'Open LinkedIn', url: 'https://www.linkedin.com/in/jeremy-bosire-3004b51a7/' }]
           },
           {
             id: 'github', title: 'GitHub', size: 0.8,
-            body: 'Code, experiments and open-source contributions.',
+            body: 'Browse my code and open-source work on GitHub.',
             tags: ['Code', 'Open source'],
             links: [{ label: 'Open GitHub', url: 'https://github.com/Jeremy-Bosire' }]
           },
           {
             id: 'cv', title: 'Download CV', size: 0.68,
-            body: 'The one-page version, ready for a hiring manager.',
-            tags: ['PDF', 'Placeholder'],
+            body: 'My CV, ready for a hiring manager.',
+            tags: ['PDF'],
             cv: true
           },
           {
             id: 'availability', title: 'Availability', size: 0.86, featured: true,
-            body: 'Open to fullstack, backend and DevOps roles, and remote teams. References available on request.',
+            body: 'I’m open to fullstack, backend and DevOps roles, including remote teams.',
             tags: ['Fullstack', 'Backend', 'DevOps', 'Remote']
           }
         ]
@@ -993,12 +1033,11 @@ body.is-touch.playing .touch{display:block}
     ],
     easterEgg: {
       id: 'lost-cargo',
-      label: 'LOST CARGO',
-      title: 'Lost Cargo found',
-      body: 'Lost Cargo found: you looked closer than most. Let’s build something together.',
+      label: 'FIELD NOTE',
+      title: 'NRF CyberSecurity Hackathon',
+      body: 'In 2024, I led a five-person team to second place among 30+ teams at the NRF CyberSecurity Hackathon. We won Ksh 250,000.',
       link: { label: 'Open Dispatch', sectionId: 'dispatch' }
     },
-    closingNote: 'One container is not on the manifest. It is worth looking for.'
   };
 
   /* ============================================================
@@ -1097,6 +1136,7 @@ body.is-touch.playing .touch{display:block}
     }
   };
   PALETTE.containers = PALETTE.containerOrder.map(function (id) { return PALETTE.containerById[id]; });
+  PALETTE.warmWhite = 0xf7f1ea;
 
   /* ============================================================
      EDIT CRANE FEEL HERE
@@ -1117,12 +1157,11 @@ body.is-touch.playing .touch{display:block}
     snap: { pick: 3.3 * CONTAINER_SCALE, dock: Math.max(5.2, CONTAINER_WIDTH * 0.9), assist: 5.5 },
     sway: 0.15,
     introMs: 7600,
-    introReducedMs: 1500
   };
 
   const QUAY_TOP = 0.7;
   const DOCK = { x: 24.2, z: -4.8 };
-  const YARD_Z = -18.5;
+  const YARD_Z = -12.5;
   const YARD_PITCH = CONTAINER_WIDTH + 1.1;
   const YARD_X = Array.from({ length: 8 }, function (_, i) { return (i - 3.5) * YARD_PITCH; });
   const FILLER_X = [-39.6, -32.4, -25.2, -18, -10.8, -3.6, 3.6, 10.8, 32.4, 39.6];
@@ -1172,10 +1211,48 @@ body.is-touch.playing .touch{display:block}
     for (let i = 0; i < PORTFOLIO.sections.length; i++) if (PORTFOLIO.sections[i].id === id) return PORTFOLIO.sections[i];
     return null;
   }
+  function visibleItems(section) {
+    return (section && section.items ? section.items : []).filter(function (item) {
+      return !(item.cv && !PORTFOLIO.links.cv);
+    });
+  }
+  function recordKind(section) {
+    return ({ manifest: 'profile', experience: 'experience', shipments: 'project', payload: 'skills', customs: 'achievement', training: 'education', signal: 'community', dispatch: 'contact' })[section && section.id] || 'record';
+  }
+  function recordLabel(section) {
+    return ({ manifest: 'Profile record', experience: 'Work record', shipments: 'Project file', payload: 'Skills inventory', customs: 'Achievement record', training: 'Education record', signal: 'Community record', dispatch: 'Contact details' })[section && section.id] || 'Cargo record';
+  }
+  function itemTagsHTML(item, limit, kind) {
+    if (!item.tags || !item.tags.length) return '';
+    const tags = limit ? item.tags.slice(0, limit) : item.tags;
+    const remaining = item.tags.length - tags.length;
+    return '<div class="tag-list' + (kind === 'skills' ? ' tag-list--skills' : '') + '">' +
+      tags.map(function (tag) { return '<span>' + esc(tag) + '</span>'; }).join('') +
+      (remaining > 0 ? '<span class="tag-overflow">+' + remaining + ' in text view</span>' : '') +
+      '</div>';
+  }
+  function caseStudyHTML(caseStudy) {
+    if (!caseStudy) return '';
+    let html = '<div class="case-study">';
+    if (caseStudy.problem) {
+      html += '<section class="case-study-section"><h4>Problem</h4><p>' + esc(caseStudy.problem) + '</p></section>';
+    }
+    if (caseStudy.decisions && caseStudy.decisions.length) {
+      html += '<section class="case-study-section"><h4>Engineering choices and rationale</h4><dl class="decision-list">' +
+        caseStudy.decisions.map(function (decision) {
+          return '<div><dt>' + esc(decision.choice) + '</dt><dd>' + esc(decision.reason) + '</dd></div>';
+        }).join('') + '</dl></section>';
+    }
+    if (caseStudy.delivered && caseStudy.delivered.length) {
+      html += '<section class="case-study-section"><h4>Delivered scope</h4><ul>' +
+        caseStudy.delivered.map(function (detail) { return '<li>' + esc(detail) + '</li>'; }).join('') + '</ul></section>';
+    }
+    return html + '</div>';
+  }
   function itemLinks(item) {
     const out = [];
     (item.links || []).forEach((l) => { if (l && l.url) out.push(l); });
-    if (item.repo) out.push({ label: 'GitHub', url: item.repo });
+    if (item.repo) out.push({ label: item.repoLabel || 'GitHub', url: item.repo });
     if (item.demo) out.push({ label: 'Live demo', url: item.demo });
     if (item.screenshot) out.push({ label: 'Screenshot', url: item.screenshot });
     if (item.channel) out.push({ label: 'Channel', url: item.channel });
@@ -1224,7 +1301,7 @@ body.is-touch.playing .touch{display:block}
      ============================================================ */
   const state = {
     ui: {
-      screen: 'intro',            /* intro | briefing | playing | classic */
+      screen: 'intro',            /* intro | playing | classic */
       theme: saved && (saved.theme === 'dark' || saved.theme === 'light') ? saved.theme : 'dark',
       highContrast: !!(saved && saved.highContrast === true),
       quality: saved && saved.settings && ['auto', 'high', 'medium', 'low'].indexOf(saved.settings.quality) >= 0 ? saved.settings.quality : 'auto',
@@ -1237,7 +1314,6 @@ body.is-touch.playing .touch{display:block}
       cameraView: saved && saved.settings && ['overview', 'follow', 'cab'].indexOf(saved.settings.cameraView) >= 0 ? saved.settings.cameraView : 'overview',
       settingsOpen: false,
       sound: !!(saved && saved.sound === true),
-      tutorialDone: false,
       unloaded: new Set(saved && Array.isArray(saved.unloaded) ? saved.unloaded : []),
       panel: null,                /* { mode, sectionId, itemId } */
       notice: '',
@@ -1434,9 +1510,6 @@ body.is-touch.playing .touch{display:block}
     themeBtn: $('#theme-btn'),
     themeLabel: $('#theme-label'),
     intro: $('#intro'),
-    radio: $('#radio-text'),
-    briefing: $('#briefing'),
-    briefingBio: $('#briefing-bio'),
     tutorial: $('#tutorial'),
     panel: $('#panel'),
     panelKicker: $('#panel-kicker'),
@@ -1453,7 +1526,6 @@ body.is-touch.playing .touch{display:block}
   let lastFocus = null;
   let panelSig = '';
   let toastTimer = 0;
-  let radioTimer = 0;
   function commit() { dirty = true; }
   function isPanelOpen() { return !!state.ui.panel; }
 
@@ -1502,7 +1574,7 @@ body.is-touch.playing .touch{display:block}
     }
     if (dom.soundBtn) {
       dom.soundBtn.setAttribute('aria-pressed', state.ui.sound ? 'true' : 'false');
-      dom.soundBtn.setAttribute('aria-label', state.ui.sound ? 'Sound on. Turn harbour audio off' : 'Sound off. Turn harbour audio on');
+      dom.soundBtn.setAttribute('aria-label', state.ui.sound ? 'Sound on. Turn harbor audio off' : 'Sound off. Turn harbor audio on');
       if (dom.soundLabel) dom.soundLabel.textContent = state.ui.sound ? 'Sound on' : 'Sound off';
       if (dom.soundOnIcon) {
         if (state.ui.sound) dom.soundOnIcon.removeAttribute('hidden');
@@ -1526,12 +1598,10 @@ body.is-touch.playing .touch{display:block}
   function renderOverlays() {
     const screen = state.ui.screen;
     if (dom.intro) dom.intro.hidden = screen !== 'intro';
-    if (dom.briefing) dom.briefing.hidden = screen !== 'briefing';
     if (dom.tutorial) {
       const showTutorial = screen === 'playing' && state.ui.showTutorial === true;
       dom.tutorial.hidden = !showTutorial;
     }
-    if (screen !== 'intro' && radioTimer) { clearTimeout(radioTimer); radioTimer = 0; }
   }
 
   function renderPrompt() {
@@ -1564,17 +1634,6 @@ body.is-touch.playing .touch{display:block}
     }, 3600);
   }
 
-  function setScreen(screen) {
-    state.ui.screen = screen;
-    state.ui.showTutorial = false;
-    commit();
-    renderAll(true);
-    if (screen === 'briefing') {
-      const b = dom.briefing && dom.briefing.querySelector('[data-autofocus]');
-      if (b) setTimeout(function () { b.focus({ preventScroll: true }); }, 80);
-    }
-  }
-
   /* ============================================================
      Panel — cargo index, container contents, lost cargo
      ============================================================ */
@@ -1588,57 +1647,62 @@ body.is-touch.playing .touch{display:block}
   }
 
   function itemDetailHTML(item, section) {
-    let html = '<div class="detail">';
+    const kind = recordKind(section);
+    const caseStudy = kind === 'project' && item.caseStudy;
+    let html = '<article class="detail detail--' + kind + '">';
+    html += '<p class="detail-caption">' + esc(recordLabel(section)) + '</p>';
     html += '<h3>' + esc(item.title) + (item.badge ? '<span class="badge">✓ ' + esc(item.badge) + '</span>' : '') + '</h3>';
     if (item.meta) html += '<p class="meta">' + esc(item.meta) + '</p>';
-    if (item.body) html += '<p>' + esc(item.body) + '</p>';
-    if (item.bullets && item.bullets.length) {
+    if (caseStudy) html += caseStudyHTML(caseStudy);
+    else if (item.body) html += '<p>' + esc(item.body) + '</p>';
+    if (!caseStudy && item.bullets && item.bullets.length) {
+      if (kind === 'project') html += '<p class="detail-caption detail-caption--sub">Build details</p>';
+      if (kind === 'experience') html += '<p class="detail-caption detail-caption--sub">Responsibilities</p>';
       html += '<ul>' + item.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>';
     }
     if (item.miniCrates) html += miniCratesHTML(7);
-    if (item.tags && item.tags.length) {
-      html += '<div class="tag-list">' + item.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>';
-    }
+    html += itemTagsHTML(item, 4, kind);
     const links = allLinkButtons(item, '');
     let extras = '';
     if (item.email) {
       extras += '<a href="' + esc(mailto()) + '">' + esc(PORTFOLIO.links.email) + '</a>';
       extras += '<button type="button" data-action="COPY_EMAIL">Copy address</button>';
     }
-    if (item.cv) {
-      if (PORTFOLIO.links.cv) extras += '<a href="' + esc(PORTFOLIO.links.cv) + '" target="_blank" rel="noopener noreferrer">Download CV ↗</a>';
-      else extras += '<button type="button" data-action="CV_PLACEHOLDER">CV link coming soon</button>';
-    }
+    if (item.cv && PORTFOLIO.links.cv) extras += '<a href="' + esc(PORTFOLIO.links.cv) + '" target="_blank" rel="noopener noreferrer">Download CV ↗</a>';
     if (links || extras) html += '<div class="item-links">' + links + extras + '</div>';
-    html += '</div>';
+    html += '</article>';
     return html;
   }
 
   function panelCargoHTML(section) {
     const unloaded = state.ui.unloaded.has(section.id);
-    let html = '<p class="panel-sub">' + esc(section.subtitle) + '</p>';
-    html += '<p class="panel-sub" style="margin-top:6px"><span class="badge">' + (unloaded ? '✓ UNLOADED' : 'ON THE MANIFEST') + '</span> · ' + section.items.length + ' crates</p>';
+    const items = visibleItems(section);
+    let html = '<div class="manifest-sheet">';
+    html += '<div class="manifest-heading"><span class="manifest-code">PORT OF BOSIRE · ' + esc(section.label) + '</span>' +
+      '<span class="manifest-stamp">' + (unloaded ? 'DOCKED' : 'IN YARD') + '</span></div>';
+    html += '<p class="panel-sub">' + esc(section.subtitle) + '</p>';
+    html += '<p class="panel-sub" style="margin-top:6px">' + items.length + ' records</p>';
     html += '<div class="crate-list" role="list" aria-label="Cargo boxes in ' + esc(section.title) + '">';
-    section.items.forEach(function (item, i) {
+    items.forEach(function (item) {
       const selected = state.ui.panel && state.ui.panel.itemId === item.id;
       const color = colorCss(sectionColor(section));
       html += '<button type="button" class="crate-btn" role="listitem" data-action="SELECT_ITEM" data-item="' + esc(item.id) + '" aria-current="' + (selected ? 'true' : 'false') + '">' +
         '<span class="crate-swatch" style="background:' + color + '" aria-hidden="true"></span>' +
         '<span class="crate-name">' + esc(item.title) + '</span>' +
-        '<span class="crate-weight">' + (item.size >= 0.9 ? 'HEAVY' : item.size >= 0.7 ? 'FULL' : 'LIGHT') + '</span>' +
+        '<span class="crate-weight">' + (section.id === 'shipments' && item.featured ? 'CASE STUDY' : item.size >= 0.9 ? 'HEAVY' : item.size >= 0.7 ? 'FULL' : 'LIGHT') + '</span>' +
         '</button>';
     });
     html += '</div>';
     const selectedItem = state.ui.panel && state.ui.panel.itemId
-      ? section.items.filter(function (it) { return it.id === state.ui.panel.itemId; })[0]
+      ? items.filter(function (it) { return it.id === state.ui.panel.itemId; })[0]
       : null;
     if (selectedItem) html += itemDetailHTML(selectedItem, section);
-    else html += '<p class="panel-empty">Select a crate above to read its contents. Every crate is keyboard-reachable.</p>';
-    return html;
+    else html += '<p class="panel-empty">Select a record above to read its details. Every record is keyboard reachable.</p>';
+    return html + '</div>';
   }
 
   function panelIndexHTML() {
-    let html = '<p class="panel-sub">Eight containers on the manifest, plus whatever is not on it. Open any chapter below.</p>';
+    let html = '<p class="panel-sub">My projects, experience, skills, education and community work are grouped below. Open a section to read the details.</p>';
     html += '<div class="index-list">';
     PORTFOLIO.sections.forEach(function (s, i) {
       const n = state.ui.unloaded.has(s.id);
@@ -1767,24 +1831,28 @@ body.is-touch.playing .touch{display:block}
      Classic view — semantic, scrollable, all data
      ============================================================ */
   function classicItemHTML(item, section) {
+    const kind = recordKind(section);
+    const caseStudy = kind === 'project' && item.caseStudy;
     const links = allLinkButtons(item, '');
     let extras = '';
     if (item.email) {
       extras += '<a href="' + esc(mailto()) + '">' + esc(PORTFOLIO.links.email) + '</a>';
       extras += '<button type="button" data-action="COPY_EMAIL">Copy address</button>';
     }
-    if (item.cv) {
-      if (PORTFOLIO.links.cv) extras += '<a href="' + esc(PORTFOLIO.links.cv) + '" target="_blank" rel="noopener noreferrer">Download CV ↗</a>';
-      else extras += '<button type="button" data-action="CV_PLACEHOLDER">CV link coming soon</button>';
-    }
-    return '<article class="classic-item' + (item.featured ? ' is-featured' : '') + '">' +
+    if (item.cv && PORTFOLIO.links.cv) extras += '<a href="' + esc(PORTFOLIO.links.cv) + '" target="_blank" rel="noopener noreferrer">Download CV ↗</a>';
+    return '<article class="classic-item classic-item--' + kind + (item.featured ? ' is-featured' : '') + '" style="--section-color:' + colorCss(sectionColor(section)) + '">' +
+      '<div class="classic-item-head"><p class="record-kind">' + (kind === 'project' && item.featured ? 'Featured case study' : esc(recordLabel(section))) + '</p>' +
       '<h3>' + esc(item.title) + (item.badge ? '<span class="badge">✓ ' + esc(item.badge) + '</span>' : '') + '</h3>' +
-      (item.meta ? '<p class="meta">' + esc(item.meta) + '</p>' : '') +
-      (item.body ? '<p>' + esc(item.body) + '</p>' : '') +
-      (item.bullets && item.bullets.length ? '<ul>' + item.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' : '') +
-      (item.tags && item.tags.length ? '<div class="tag-list">' + item.tags.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
+      (item.meta ? '<p class="meta">' + esc(item.meta) + '</p>' : '') + '</div>' +
+      '<div class="classic-item-content">' +
+      (caseStudy ? caseStudyHTML(caseStudy) : '') +
+      (!caseStudy && kind === 'project' && item.body ? '<p class="record-kind record-kind--detail">Overview</p>' : '') +
+      (!caseStudy && item.body ? '<p>' + esc(item.body) + '</p>' : '') +
+      (!caseStudy && kind === 'project' && item.bullets && item.bullets.length ? '<p class="record-kind record-kind--detail">Build details</p>' : '') +
+      (!caseStudy && item.bullets && item.bullets.length ? '<ul>' + item.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' : '') +
+      itemTagsHTML(item, null, kind) +
       (links || extras ? '<div class="item-links">' + links + extras + '</div>' : '') +
-      '</article>';
+      '</div></article>';
   }
 
   function renderClassic() {
@@ -1802,6 +1870,7 @@ body.is-touch.playing .touch{display:block}
       '<p class="classic-role">' + esc(hero.role) + '</p>' +
       '<p class="classic-lead">' + esc(hero.blurb) + '</p>' +
       '<div class="classic-links">' +
+      '<a class="projects-link" href="#classic-shipments">View featured work ↓</a>' +
       '<a href="' + esc(PORTFOLIO.links.github) + '" target="_blank" rel="noopener noreferrer">GitHub ↗</a>' +
       '<a href="' + esc(PORTFOLIO.links.linkedin) + '" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>' +
       '<a href="' + esc(mailto()) + '">Email</a>' +
@@ -1815,11 +1884,11 @@ body.is-touch.playing .touch{display:block}
         '<div class="classic-section-head"><p class="eyebrow">0' + (i + 1) + ' · ' + esc(section.label) + '</p>' +
         '<h2 id="classic-' + esc(section.id) + '-h">' + esc(section.title) + '</h2>' +
         '<p>' + esc(section.subtitle) + '</p></div>' +
-        '<div class="classic-items">' + section.items.map(function (item) { return classicItemHTML(item, section); }).join('') + '</div>' +
+        '<div class="classic-items">' + visibleItems(section).map(function (item) { return classicItemHTML(item, section); }).join('') + '</div>' +
         '</section>';
     });
 
-    html += '<footer class="classic-footer"><span>' + esc(hero.references) + '</span><span>' + esc(PORTFOLIO.closingNote) + '</span>' +
+    html += '<footer class="classic-footer">' +
       '<a href="' + esc(PORTFOLIO.links.github) + '" target="_blank" rel="noopener noreferrer">GitHub</a>' +
       '<a href="' + esc(PORTFOLIO.links.linkedin) + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
       '<a href="' + esc(mailto()) + '">' + esc(PORTFOLIO.links.email) + '</a></footer>';
@@ -1879,7 +1948,6 @@ body.is-touch.playing .touch{display:block}
     dom.classic.hidden = true;
     dom.port.hidden = false;
     state.ui.screen = state.ui.prevScreen && state.ui.prevScreen !== 'classic' ? state.ui.prevScreen : 'playing';
-    if (state.ui.screen === 'intro') state.ui.screen = 'briefing';
     document.body.classList.remove('is-classic');
     window.scrollTo(0, 0);
     commit();
@@ -1952,8 +2020,8 @@ body.is-touch.playing .touch{display:block}
   };
 
   const INTRO_SHOTS = [
-    { at: 0, position: [-58, 11, 48], look: [-32, 2.5, 20] },
-    { at: 0.22, position: [-39, 8, 30], look: [-20, 3.2, 17] },
+    { at: 0, position: [-58, 11, 38], look: [-32, 2.5, 8] },
+    { at: 0.22, position: [-39, 8, 24], look: [-20, 3.2, 7] },
     { at: 0.5, position: [-13, 10, 12], look: [-7, 3.4, -15] },
     { at: 0.76, position: [-24, 14, -8], look: [-29, 10.6, -19] },
     { at: 1, position: [-34.5, 11.4, -17], look: [-31, 10.8, -7] }
@@ -2343,6 +2411,17 @@ body.is-touch.playing .touch{display:block}
       ctx.fillStyle = i % 3 ? rgbaCss(PALETTE.lettering, .16) : rgbaCss(PALETTE.derived.ink, .2);
       ctx.fillRect(x, y, 1 + rand() * 3, 2 + rand() * 13);
     }
+    /* A few longer, irregular salt and paint runs break up the even chip pattern. */
+    ctx.save();
+    ctx.lineCap = 'round';
+    for (let i = 0; i < 18; i++) {
+      const x = 12 + rand() * (width - 24), y = rand() * (height - 48);
+      const drift = (rand() - .5) * 10, length = 9 + rand() * 31;
+      ctx.strokeStyle = i % 4 ? rgbaCss(PALETTE.derived.ink, .13) : rgbaCss(PALETTE.brand.peachGlow, .18);
+      ctx.lineWidth = .7 + rand() * 2.1;
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + drift, y + length); ctx.stroke();
+    }
+    ctx.restore();
     /* High contrast painted identification plate. */
     ctx.fillStyle = rgbaCss(PALETTE.derived.ink, .94); ctx.fillRect(16, 28, 380, 108);
     ctx.strokeStyle = rgbaCss(PALETTE.brand.limeCream, .88); ctx.lineWidth = 3; ctx.strokeRect(19, 31, 374, 102);
@@ -2394,26 +2473,26 @@ body.is-touch.playing .touch{display:block}
   function initThree() {
     if (typeof THREE === 'undefined' || window.__THREE_FAILED__) {
       state.ui.webgl = false;
-      showClassic('The 3D harbour could not load (three.js did not arrive). This is the full text version — everything is still here.');
+      showClassic('The 3D harbor could not load (three.js did not arrive). This is the full text version — everything is still here.');
       return false;
     }
     if (!hasWebGL()) {
       state.ui.webgl = false;
-      showClassic('WebGL is unavailable in this browser, so the harbour cannot render. You are reading the full text version instead.');
+      showClassic('WebGL is unavailable in this browser, so the harbor cannot render. You are reading the full text version instead.');
       return false;
     }
     try {
       G.renderer = new THREE.WebGLRenderer({ canvas: dom.canvas, antialias: true, powerPreference: 'high-performance', alpha: false });
     } catch (e) {
       state.ui.webgl = false;
-      showClassic('The 3D harbour could not start on this device. This is the full text version.');
+      showClassic('The 3D harbor could not start on this device. This is the full text version.');
       return false;
     }
     state.ui.qualityTier = state.ui.quality === 'auto' ? deviceQuality() : state.ui.quality;
     G.renderer.setPixelRatio(qualityPixelRatio());
     G.renderer.setSize(window.innerWidth, window.innerHeight, false);
     G.renderer.shadowMap.enabled = resolveQuality() !== 'low';
-    G.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    G.renderer.shadowMap.type = THREE.PCFShadowMap;
     if ('outputEncoding' in G.renderer) G.renderer.outputEncoding = THREE.sRGBEncoding;
     G.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     G.renderer.toneMappingExposure = 1.06;
@@ -2583,7 +2662,7 @@ body.is-touch.playing .touch{display:block}
     G.scene.add(rim); G.scene.add(rim.target);
 
     const lampA = new THREE.PointLight(PALETTE.brand.peachGlow, 0.85, 30, 2);
-    lampA.position.set(-18, 7.5, -3.5);
+    lampA.position.set(-14.4, 7.5, -3.5);
     G.scene.add(lampA);
     const lampB = new THREE.PointLight(PALETTE.brand.peachGlow, 0.7, 26, 2);
     lampB.position.set(22, 7.5, -3.5);
@@ -2631,7 +2710,7 @@ body.is-touch.playing .touch{display:block}
         uFog: { value: new THREE.Color(PALETTE.fog) },
         uDeep: { value: new THREE.Color(PALETTE.waterDeep) }, uMid: { value: new THREE.Color(PALETTE.waterMid) },
         uShallow: { value: new THREE.Color(PALETTE.waterShallow) }, uFoam: { value: new THREE.Color(PALETTE.waterFoam) },
-        uShipPosition: { value: new THREE.Vector3(sim.shipX, 0, 17.5) }
+        uShipPosition: { value: new THREE.Vector3(sim.shipX, 0, 5.2) }
       };
     }
     G.waterUniforms.uQuality.value = tier === 'high' ? 2 : tier === 'medium' ? 1 : 0;
@@ -2814,7 +2893,7 @@ body.is-touch.playing .touch{display:block}
     const bolMat = stdMat(PALETTE.sceneColors["1e2a33"], { roughness: 0.55, metalness: 0.55 });
     for (let x = -40; x <= 40; x += 8) {
       const b = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.34, 0.9, 8), bolMat);
-      b.position.set(x, QUAY_TOP + 0.45, -1.9);
+      b.position.set(x, QUAY_TOP + 0.45, -1.15);
       b.castShadow = true; b.receiveShadow = true; quay.add(b);
     }
     /* yard chalk outlines */
@@ -2946,7 +3025,7 @@ body.is-touch.playing .touch{display:block}
     reachStacker(-38, -25.5);
     straddleCarrier(-38, -37.5);
     terminalTractor(37, -25, true);
-    terminalTractor(37, -12, false);
+    terminalTractor(41.5, -12, false);
   }
 
   function buildLamp(parent, x, z, withLight) {
@@ -3132,19 +3211,19 @@ body.is-touch.playing .touch{display:block}
       const label = new THREE.Mesh(new THREE.PlaneGeometry(5.2, .64), new THREE.MeshBasicMaterial({ map: nameTexture, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
       label.position.set(13.1, 1.76, side * 3.91); if (side < 0) label.rotation.y = Math.PI; ship.add(label);
     });
-    ship.position.set(sim.shipX, -.62, 17.5);
+    ship.position.set(sim.shipX, -.62, 5.2);
     ship.rotation.y = 0;
     G.ship = ship;
     G.scene.add(ship);
-    [[-10, [-24, .95, -1.8]], [10, [-8, .95, -1.8]]].forEach(function (pair) {
+    [[-10, [-24, 1.15, -1.15]], [10, [-8, 1.15, -1.15]]].forEach(function (pair) {
       const positions = new Float32Array(9 * 3);
       const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
       const rope = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: PALETTE.cable, transparent: true, opacity: .9 }));
       rope.visible = false; G.scene.add(rope); G.mooringLines.push({ line: rope, localX: pair[0], end: pair[1] });
     });
-    buildLamp(G.scene, -18, -3.2, true);
-    buildLamp(G.scene, 4, -3.2, false);
-    buildLamp(G.scene, 26, -3.2, false);
+    buildLamp(G.scene, -14.4, -3.2, true);
+    buildLamp(G.scene, 0.1, -3.2, false);
+    buildLamp(G.scene, 21.6, -3.2, false);
   }
 
   function buildCrane() {
@@ -3463,7 +3542,8 @@ body.is-touch.playing .touch{display:block}
     const fillerSurfaces = PALETTE.filler.map(function (color, index) {
       return containerSurface({ id: 'yard-' + index, color: color, label: 'BOSIRE CARGO', title: 'YARD ' + String(index + 1).padStart(2, '0'), section: { tone: index } });
     });
-    const filler = FILLER_X.map(function (x, i) { return [x, -2.8, i % 3 === 0 ? 2 : 1]; });
+    const fillerTiers = [2, 1, 2, 1, 1, 2, 1, 1, 1, 2];
+    const filler = FILLER_X.map(function (x, i) { return [x, -2.8, fillerTiers[i]]; });
     filler.forEach(function (f, i) {
       const tiers = f[2];
       for (let t = 0; t < tiers; t++) {
@@ -3483,7 +3563,7 @@ body.is-touch.playing .touch{display:block}
 
     /* the one hidden gold container */
     const gold = createContainer({
-      id: 'lost-cargo', x: -13.2, z: -12.5, w: 3.17, h: 1.35, d: 1.25, scale: CONTAINER_SCALE * 0.72,
+      id: 'lost-cargo', x: -14.4, z: -9.2, w: 3.17, h: 1.35, d: 1.25, scale: CONTAINER_SCALE * 0.72,
       color: PALETTE.derived.eggGold, gold: true, rotation: 0.16, label: 'LOST CARGO', title: 'Look closer'
     });
     gold.bodyMat.emissive = new THREE.Color(PALETTE.brand.limeCream);
@@ -3906,13 +3986,13 @@ body.is-touch.playing .touch{display:block}
     G.mooringLines.forEach(function (rope) {
       rope.line.visible = sim.shipX > -17;
       if (!rope.line.visible) return;
-      const start = G.ship.localToWorld(new THREE.Vector3(rope.localX, .88, rope.localX < 0 ? -3.7 : 3.7));
+      const start = G.ship.localToWorld(new THREE.Vector3(rope.localX, .88, -3.7));
       const end = new THREE.Vector3(rope.end[0], rope.end[1], rope.end[2]);
       const attr = rope.line.geometry.attributes.position;
       for (let i = 0; i < attr.count; i++) {
         const u = i / (attr.count - 1);
         const x = lerp(start.x, end.x, u), z = lerp(start.z, end.z, u);
-        const sag = Math.sin(u * Math.PI) * (.72 + Math.abs(G.ship.position.y + .62) * .45);
+        const sag = Math.sin(u * Math.PI) * (.25 + Math.abs(G.ship.position.y + .62) * .3);
         attr.setXYZ(i, x, lerp(start.y, end.y, u) - sag, z);
       }
       attr.needsUpdate = true; rope.line.geometry.computeBoundingSphere();
@@ -3984,9 +4064,6 @@ body.is-touch.playing .touch{display:block}
         lerp(a.look[1], b.look[1], ease),
         lerp(a.look[2], b.look[2], ease)
       );
-    } else if (state.ui.screen === 'briefing') {
-      goalPos.set(-34.5, 11.4, -17);
-      look.set(-31, 10.8, -7);
     } else if (overview) {
       /* Fit the full container row across the available viewport. */
       look.set(0, 3.2, YARD_Z);
@@ -4227,71 +4304,23 @@ body.is-touch.playing .touch{display:block}
   /* ============================================================
      Input + actions
      ============================================================ */
-  let introTimeout = 0, typeTimer = 0, introTypingStarted = false;
-  const RADIO_MESSAGE = 'Port Control to Bosire Terminal. Cargo vessel MV Obsidian requesting berth. Manifest secured. Operator, report to crane alpha.';
-
-  function clearIntroTimers() {
-    if (introTimeout) { clearTimeout(introTimeout); introTimeout = 0; }
-    if (typeTimer) { clearTimeout(typeTimer); typeTimer = 0; }
-  }
-
-  function goBriefing() {
-    if (state.ui.screen !== 'intro') return;
-    clearIntroTimers();
-    sim.introDone = true;
-    setTimePreset(state.ui.timeOfDay);
-    setCameraPreference();
-    setScreen('briefing');
-  }
-
-  function typeRadio() {
-    if (state.ui.screen !== 'intro' || !dom.radio) return;
-    let i = 0;
-    function step() {
-      if (state.ui.screen !== 'intro') return;
-      i++;
-      dom.radio.textContent = RADIO_MESSAGE.slice(0, i);
-      const cursor = document.createElement('span');
-      cursor.className = 'cursor';
-      dom.radio.appendChild(cursor);
-      if (i < RADIO_MESSAGE.length) typeTimer = setTimeout(step, 25);
-      else typeTimer = 0;
-    }
-    typeTimer = setTimeout(step, reducedMotion ? 0 : 500);
-  }
-
   function beginIntro() {
     sim.introStart = performance.now();
     sim.shipX = -72;
-    if (reducedMotion && dom.radio) {
-      dom.radio.textContent = RADIO_MESSAGE;
-      introTimeout = setTimeout(goBriefing, TUNING.introReducedMs);
-    } else {
-      typeRadio();
-      introTimeout = setTimeout(goBriefing, TUNING.introMs);
-    }
   }
 
   function startShift() {
     sim.introDone = true;
     setCameraPreference();
     state.ui.screen = 'playing';
-    state.ui.showTutorial = !state.ui.tutorialDone;
+    state.ui.showTutorial = false;
     commit();
     renderAll(true);
-    if (state.ui.showTutorial) {
-      setTimeout(function () {
-        const btn = dom.tutorial && dom.tutorial.querySelector('[data-autofocus]');
-        if (btn) btn.focus({ preventScroll: true });
-      }, 80);
-    } else {
-      setTimeout(function () { if (dom.canvas) dom.canvas.focus({ preventScroll: true }); }, 60);
-    }
+    setTimeout(function () { if (dom.canvas) dom.canvas.focus({ preventScroll: true }); }, 60);
     if (state.ui.sound) { if (AudioFX.ensure()) AudioFX.setEnabled(true); }
   }
 
   function dismissTutorial() {
-    state.ui.tutorialDone = true;
     state.ui.showTutorial = false;
     commit();
     renderAll(true);
@@ -4368,7 +4397,6 @@ body.is-touch.playing .touch{display:block}
       case 'TOGGLE_SETTINGS': toggleSettings(); break;
       case 'SHOW_CLASSIC': showClassic(); break;
       case 'SHOW_PORT': showPort(); break;
-      case 'SKIP_INTRO': sim.introDone = true; goBriefing(); break;
       case 'START_SHIFT': startShift(); break;
       case 'DISMISS_TUTORIAL': dismissTutorial(); break;
       case 'SHOW_TUTORIAL': showTutorial(); break;
@@ -4397,7 +4425,6 @@ body.is-touch.playing .touch{display:block}
       case 'CLOSE_PANEL': closePanel(); break;
       case 'RETURN': returnContainer(); break;
       case 'COPY_EMAIL': copyEmail(); break;
-      case 'CV_PLACEHOLDER': showToast('CV link coming soon — add it in the data object.'); break;
       case 'OPEN_DOCK_CARGO': {
         if (sim.dockedId === 'lost-cargo') openPanel('lost', null, null, true);
         else if (sim.dockedId) openPanel('cargo', sim.dockedId, null, true);
@@ -4452,7 +4479,7 @@ body.is-touch.playing .touch{display:block}
       }
       if (isPanelOpen()) { e.preventDefault(); closePanel(); return; }
       if (state.ui.showTutorial) { e.preventDefault(); dismissTutorial(); return; }
-      if (state.ui.screen === 'intro') { e.preventDefault(); sim.introDone = true; goBriefing(); return; }
+      if (state.ui.screen === 'intro') { e.preventDefault(); startShift(); return; }
       return;
     }
     trapPanelFocus(e);
@@ -4706,6 +4733,10 @@ body.is-touch.playing .touch{display:block}
     dom.canvas.style.cursor = '';
   });
 
+  dom.canvas.addEventListener('webglcontextlost', function (e) {
+    e.preventDefault();
+    showClassic('The 3D harbor lost its graphics context, so you are reading the text version. Choose Return to port to try again.');
+  });
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) AudioFX.setMotor(0);
   });
@@ -4740,7 +4771,6 @@ body.is-touch.playing .touch{display:block}
 
   function boot() {
     dom.canvas.tabIndex = 0;
-    if (dom.briefingBio) dom.briefingBio.textContent = PORTFOLIO.hero.blurb;
     applyTheme();
     commit();
     renderAll(true);
